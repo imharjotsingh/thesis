@@ -1,7 +1,7 @@
 import mimetypes
 import os
 from urllib.parse import urlparse
-import cv2
+import cv2 
 import numpy as np
 
 import DetectChars
