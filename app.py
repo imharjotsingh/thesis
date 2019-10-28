@@ -12,6 +12,7 @@ import requests
 from twilio.twiml.messaging_response import MessagingResponse
 
 
+
 app = Flask(__name__)
 
 
@@ -20,7 +21,6 @@ GOOD_BOY_URL = "https://images.unsplash.com/photo-1518717758536-85ae29035b6d?ixl
 
 @app.route("/whatsapp", methods=["GET", "POST"])
 def reply_whatsapp():
-
     num_media = int(request.values.get("NumMedia"))
     media_files = []
     media_sid = ""
@@ -74,6 +74,8 @@ def reply_whatsapp():
                 msg = response.message("no characters were detected")                     # if no chars were found in the plate
                 return str(response)                                       # and exit program
             # end if
+           # mycursor.execute("INSERT INTO data VALUES (%s,%s,%s,%s,%s)", ("", "", "","",""))
+           # mydb.commit()
             msg = response.message("We have recorded the incident. Could you please send us a location of the incident by clicking the following link? license plate read from image = " + licPlate.strChars )
 
     return str(response)

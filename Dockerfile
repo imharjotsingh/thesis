@@ -4,4 +4,6 @@ COPY . /app
 WORKDIR /app
 RUN pip install -r requirements.txt
 ENTRYPOINT ["python"]
+RUN adduser -D myuser
+USER myuser
 CMD ["app.py"]
